@@ -866,6 +866,10 @@ struct _GLFWlibrary
     struct {
         GLFWmonitorfun  monitor;
         GLFWjoystickfun joystick;
+        GLFWjoystickaxisfun   joystick_axis;
+        GLFWjoystickbuttonfun joystick_button;
+        GLFWjoystickhatfun    joystick_hat;
+        GLFWgamepadstatefun   gamepad_state;
     } callbacks;
 
     // These are defined in platform.h
@@ -974,6 +978,7 @@ _GLFWjoystick* _glfwAllocJoystick(const char* name,
                                   int hatCount);
 void _glfwFreeJoystick(_GLFWjoystick* js);
 void _glfwCenterCursorInContentArea(_GLFWwindow* window);
+void _glfwPollAllJoysticks();
 
 GLFWbool _glfwInitEGL(void);
 void _glfwTerminateEGL(void);
