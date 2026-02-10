@@ -6,6 +6,8 @@ add_library(glfw ${GLFW_LIBRARY_TYPE}
                  context.c init.c input.c monitor.c platform.c vulkan.c window.c
                  egl_context.c osmesa_context.c null_platform.h null_joystick.h
                  null_init.c null_monitor.c null_window.c null_joystick.c)
+set_property(TARGET glfw PROPERTY
+        MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 # The time, thread and module code is shared between all backends on a given OS,
 # including the null backend, which still needs those bits to be functional
